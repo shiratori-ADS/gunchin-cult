@@ -1,0 +1,337 @@
+{
+  "brand": {
+    "navTitle": "GUNCHIN CHURCH",
+    "emblemText": "G",
+    "emblemImage": "/images/gunchin_emblem.png",
+    "deityMark": "グ",
+    "deityImage": ""
+  },
+  "nav": {
+    "menuItems": [
+      { "label": "教義", "href": "/doctrine" },
+      { "label": "教団について", "href": "/about" },
+      { "label": "お言葉", "href": "/sayings" },
+      { "label": "入信", "href": "/join" },
+      { "label": "グンチーンショップ", "href": "/shop" },
+      { "label": "お知らせ", "href": "/news" }
+    ]
+  },
+  "hero": {
+    "eyebrow": "GUNCHIN CHURCH OFFICIAL",
+    "catchcopy": "すべては、\nグングン良くなる。",
+    "subcopy": "グン様の導きで、あなたの人生はグングン前へ。",
+    "image": "/images/gunsama.png",
+    "imageAlt": "光に包まれたグン様",
+    "buttons": [
+      {
+        "label": "教義",
+        "href": "/doctrine",
+        "variant": "primary"
+      },
+      {
+        "label": "教団について",
+        "href": "/about",
+        "variant": "secondary"
+      },
+      {
+        "label": "お言葉",
+        "href": "/sayings",
+        "variant": "secondary"
+      },
+      {
+        "label": "入信",
+        "href": "/join",
+        "variant": "secondary"
+      },
+      {
+        "label": "グンチーンショップ",
+        "href": "/shop",
+        "variant": "dark"
+      },
+      {
+        "label": "お知らせ",
+        "href": "/news",
+        "variant": "dark"
+      }
+    ]
+  },
+  "mainDoctrine": {
+    "eyebrow": "DOCTRINE",
+    "title": "教義",
+    "text": "「すべてはグングン良くなる。」",
+    "image": "",
+    "imageAlt": "金色のエンブレム",
+    "adventImage": "/images/gunsama_advent.png",
+    "adventImageAlt": "グン様降臨のイメージ"
+  },
+  "doctrines": [
+    {
+      "text": "迷ったらグン様を信じよ。",
+      "body": "答えが見つからない時こそ、恐れず一歩踏み出すこと。その一歩こそが、グン様の導きである。",
+      "image": "",
+      "imageAlt": "第一教義のイメージ"
+    },
+    {
+      "text": "笑いは最大のグンチーンチーン。",
+      "body": "人を笑わせ、自分も笑い、皆で笑う。笑顔はグンチーンエネルギーを生み出し、世界を平和へ導く。",
+      "image": "",
+      "imageAlt": "第二教義のイメージ"
+    },
+    {
+      "text": "グンは分け合うほど増える。",
+      "body": "幸せ、優しさ、美味しいもの、面白い話。グンチーンは独り占めしてはいけない。仲間と分かち合うほど、グン様ポイント（通称：GP）は無限に増えていく。",
+      "image": "",
+      "imageAlt": "第三教義のイメージ"
+    }
+  ],
+  "about": {
+    "eyebrow": "ABOUT",
+    "title": "グンチーン教団とは",
+    "body": "世界はグン様のためにある。グン様を讃え崇めるために誕生した教団。\n信者の目的は、毎日グン様に感謝しグングンチーンチーンすること。",
+    "image": "",
+    "imageAlt": "グンチーン教団のイメージ"
+  },
+  "timeline": {
+    "eyebrow": "ABOUT US",
+    "title": "教団年表",
+    "items": [
+      {
+        "phase": "19XX/XX/XX",
+        "title": "グン様生誕",
+        "body": "かの地にて、奇跡が起きた。",
+        "image": "",
+        "imageAlt": "グン様生誕のイメージ"
+      },
+      {
+        "phase": "20XX/XX/XX",
+        "title": "グン様日本降臨",
+        "body": "日本に降り立った瞬間、まばゆい光が・・・",
+        "image": "",
+        "imageAlt": "グン様日本降臨のイメージ"
+      },
+      {
+        "phase": "2026/06/22",
+        "title": "グンチーン教団設立",
+        "body": "信者たちの願いでグン様立つ。",
+        "image": "",
+        "imageAlt": "グンチーン教団設立のイメージ"
+      },
+      {
+        "phase": "20XX/XX/XX",
+        "title": "現在",
+        "body": "今日もグングン拡大中。",
+        "image": "",
+        "imageAlt": "現在のグンチーン教団のイメージ"
+      }
+    ]
+  },
+  "ritualCards": [
+    {
+      "eyebrow": "教団歌",
+      "title": "恋しさと せつなさと 心にグン様と",
+      "body": "荘厳なイントロから急にポップになる、魂のアンセム。グン様を思い魂を解き放て！",
+      "lyrics": "1番\n夕暮れ空を　見上げれば\nどこからともなく　光さす\n迷いの中で　立ち止まる\nそんな私に　声がする\n\nチーン！　チーン！\n\n恋しさと　せつなさと\n心にグン様と\n笑う日も　泣いた日も\nいつも　そばにいる\n\nしゅわしゅわは　一瞬でも\n幸せは　一生さ\nグン様と　歩く道は\n今日も　まぶしい\n\n2番\nある日みんなで　食事して\n笑顔あふれる　その時に\n浮かれた心を　見抜かれて\n響くお言葉　胸に刺さる\n\n「しゅわしゅわは一瞬、幸せは一生。」\n\n恋しさと　せつなさと\n心にグン様と\n後悔も　涙さえも\n明日への　贈り物\n\n右の拳に　左を乗せ\n目の前で　揺らしながら\n\nチーン！　チーン！\n\n世界中へ　祈り届け\n\n3番\n花が咲き　蝶が舞い\n後光が空を　照らすたび\n誰もが笑顔に　包まれて\n愛だけ残る　その景色\n\n恋しさと　せつなさと\n心にグン様と\nどんな日も　信じれば\n道は　開いてく\n\nありがとう　ありがとう\nその教え　胸に抱き\nみんなで今日も　声合わせ\n\nチーン！　チーン！\n\nwith グン様　永遠に。",
+      "image": "",
+      "imageAlt": "グンチーン教団歌のイメージ"
+    },
+    {
+      "eyebrow": "演舞",
+      "title": "グン様スタイル",
+      "body": "さあ、グン様と一つに踊り狂うのです。その先に真のチーンが待っている！",
+      "image": "",
+      "imageAlt": "グンチーン教団演舞のイメージ",
+      "gallery": [
+        {
+          "image": "/images/gunsama_style01.png",
+          "imageAlt": "グン様スタイル 1"
+        },
+        {
+          "image": "/images/gunsama_style02.png",
+          "imageAlt": "グン様スタイル 2"
+        },
+        {
+          "image": "/images/gunsama_style03.png",
+          "imageAlt": "グン様スタイル 3"
+        },
+        {
+          "image": "/images/gunsama_style04.png",
+          "imageAlt": "グン様スタイル 4"
+        },
+        {
+          "image": "/images/gunsama_style05.png",
+          "imageAlt": "グン様スタイル 5"
+        },
+        {
+          "image": "/images/gunsama_style06.png",
+          "imageAlt": "グン様スタイル 6"
+        },
+        {
+          "image": "/images/gunsama_style07.png",
+          "imageAlt": "グン様スタイル 7"
+        },
+        {
+          "image": "/images/gunsama_style08.png",
+          "imageAlt": "グン様スタイル 8"
+        },
+        {
+          "image": "/images/gunsama_style09.png",
+          "imageAlt": "グン様スタイル 9"
+        }
+      ]
+    },
+    {
+      "eyebrow": "作法",
+      "title": "グン様を祈る正しい作法",
+      "body": "グン様へ感謝と敬意を捧げ、心をひとつにするための、正しい祈りの方法です。",
+      "image": "",
+      "imageAlt": "グンチーン作法のイメージ",
+      "gallery": [
+        {
+          "image": "/images/gunchin_manners01.png",
+          "imageAlt": "作法 1"
+        },
+        {
+          "image": "/images/gunchin_manners02.png",
+          "imageAlt": "作法 2"
+        },
+        {
+          "image": "/images/gunchin_manners03.png",
+          "imageAlt": "作法 3"
+        },
+        {
+          "image": "/images/gunchin_manners04.png",
+          "imageAlt": "作法 4"
+        },
+        {
+          "image": "/images/gunchin_manners05.png",
+          "imageAlt": "作法 5"
+        }
+      ]
+    }
+  ],
+  "sayings": {
+    "eyebrow": "WORDS",
+    "title": "グン様のありがたいお言葉",
+    "items": [
+      {
+        "text": "フライパンです。",
+        "image": "/images/gunsama_words01.png",
+        "imageAlt": "ありがたいお言葉1のイメージ"
+      },
+      {
+        "text": "3ミリ。",
+        "image": "/images/gunsama_words02.png",
+        "imageAlt": "ありがたいお言葉2のイメージ"
+      },
+      {
+        "text": "しゅわしゅわは一瞬、幸せは一生。",
+        "image": "/images/gunsama_words03.png",
+        "imageAlt": "ありがたいお言葉3のイメージ"
+      }
+    ]
+  },
+  "goods": {
+    "eyebrow": "GUNCHIN SHOP",
+    "title": "グングッズ紹介",
+    "imageGlyph": "グ",
+    "items": [
+      {
+        "name": "グンチーン\nボール",
+        "price": "セット　1,600,000円\nライトボール　1,000,000円\nレフトボール　900,000円",
+        "detail": "グン様の無限の地合いと光を宿した、神聖なる純金の玉。人生のすべてがグン様の導きに包まれます。",
+        "image": "/images/gunchin_shop01.png",
+        "imageAlt": "グンチーンボール"
+      },
+      {
+        "name": "グンペーン",
+        "price": "200,000円",
+        "detail": "グン様の祝福を、その一滴に。選ばれた葡萄と聖なる水、そしてグン様の光によって生まれた奇跡の泡。",
+        "image": "/images/gunchin_shop02.png",
+        "imageAlt": "グンペーン"
+      },
+      {
+        "name": "グングラス",
+        "price": "100,000円",
+        "detail": "グン様が日々愛用する、こだわり抜いたサングラス。眩しい世界も、これがあればグン様の世界。",
+        "image": "/images/gunchin_shop03.png",
+        "imageAlt": "グングラス"
+      },
+      {
+        "name": "GUNCHARI",
+        "price": "100,000円",
+        "detail": "信者の日々の生活をより豊かに、より安全に、そしてよりありがたくしてくれる特別な一台です。",
+        "image": "/images/gunchin_shop04.png",
+        "imageAlt": "グンチャリ"
+      },
+      {
+        "name": "グンチーンブラー",
+        "price": "20,000円",
+        "detail": "グン様の御加護をいつまでもそばに。飲み物の温度をしっかりキープし、使うたびに心が整う。",
+        "image": "/images/gunchin_shop05.png",
+        "imageAlt": "グン様タンブラー"
+      },
+      {
+        "name": "グンさ饅頭",
+        "price": "9個入り　5,000円\n6個入り　3,000円",
+        "detail": "職人の手作りによる、しっとり上品な饅頭。表面にはグンチーンエンブレムの焼印入り。グン様の御加護を感じる、優しい甘さです。",
+        "image": "/images/gunchin_shop06.png",
+        "imageAlt": "グンさ饅頭"
+      },
+      {
+        "name": "グンチーンとう",
+        "price": "黒糖黒胡麻　4,000円\nピーナッツ蜂蜜　4,000円",
+        "detail": "カリッと香ばしいかりんとう。それぞれの素材の風味を大切に仕上げました。グン様の恵みを感じる、やさしい甘さのお菓子です。",
+        "image": "/images/gunchin_shop06.png",
+        "imageAlt": "グンチーンとう"
+      },
+      {
+        "name": "グンチーンべい",
+        "price": "12枚入り　5,000円\n6枚入り　3,000円",
+        "detail": "職人が一枚一枚丁寧に焼き上げた、香ばしい醤油味のせんべい。噛むほどに広がる旨みと、サクッとした触感が魅力です。",
+        "image": "/images/gunchin_shop06.png",
+        "imageAlt": "グンチーンべい"
+      }
+    ]
+  },
+  "news": {
+    "eyebrow": "NEWS",
+    "title": "お知らせ",
+    "items": [
+      {
+        "date": "2026/06/22",
+        "title": "グンチーン教団、公式サイト開設",
+        "body": "今日から、あなたもグングン前へ。",
+        "image": "",
+        "imageAlt": "公式サイト開設のイメージ"
+      },
+      {
+        "date": "2026/07/01",
+        "title": "夏季グングンキャンペーン開催",
+        "body": "心の中でグングンチーンチーンと唱えるだけで、気持ちだけは特典対象です。",
+        "image": "",
+        "imageAlt": "夏季キャンペーンのイメージ"
+      },
+      {
+        "date": "2026/07/06",
+        "title": "グンサマニア2026開催",
+        "body": "今年も開催、グンサマニア。グン様を拝謁するチャンス！さぁ、ともに歌い踊り狂え！そして奇跡を見逃すな！",
+        "image": "/images/gunsama_news20260706.png",
+        "imageAlt": "夏季キャンペーンのイメージ"
+      }
+    ]
+  },
+  "join": {
+    "eyebrow": "JOIN US",
+    "title": "あなたも今日からグングン。",
+    "body": "ボタンを押すだけで、気持ちだけは立派な信者。\n登録フォームも審査もありません。",
+    "image": "",
+    "imageAlt": "入信案内のイメージ",
+    "buttonLabel": "入信する",
+    "successMessage": "ようこそ！\nあなたも立派なグン様の信者です！\n\nさあ、祈りなさい！\nチーンチーン！"
+  },
+  "footer": {
+    "message": "今日もグングン。",
+    "copyright": "© Gunchin Church",
+    "disclaimer": "This website is a fictional entertainment website."
+  }
+}

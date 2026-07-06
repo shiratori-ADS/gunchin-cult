@@ -1,0 +1,225 @@
+# グンチーン教団 公式サイト — サイトマップ / 構造
+
+架空ギャグコンテンツ「グンチーン教団」の公式ホームページ。  
+企画書: `Gunchin Cult.md` / 文言・画像の編集: `content/siteContent.json`
+
+---
+
+## 技術スタック
+
+| 項目 | 内容 |
+|---|---|
+| フレームワーク | Next.js（App Router） |
+| 言語 | TypeScript |
+| スタイル | Tailwind CSS v4 |
+| アニメーション | Framer Motion / GSAP |
+| 3D背景 | Three.js + `@react-three/fiber` |
+| フォント | Noto Serif JP |
+
+---
+
+## ディレクトリ構造
+
+```text
+gunchin-cult/
+├── app/                      # ページ（App Router）
+│   ├── layout.tsx            # 共通レイアウト・メタデータ
+│   ├── globals.css           # グローバルCSS / Tailwind
+│   ├── page.tsx              # TOP（/）
+│   ├── doctrine/page.tsx     # 教義（/doctrine）
+│   ├── about/page.tsx        # 教団について（/about）
+│   ├── sayings/page.tsx      # お言葉（/sayings）
+│   ├── join/page.tsx         # 入信（/join）
+│   ├── shop/page.tsx         # グンチーンショップ（/shop）
+│   └── news/page.tsx         # お知らせ（/news）
+├── components/
+│   └── SiteChrome.tsx        # 共通UI（ナビ・フッター・背景・PageShell）
+├── content/
+│   ├── siteContent.json      # 全ページの文言・画像・ナビ定義
+│   └── README.md             # JSON編集ガイド
+├── public/
+│   └── images/               # 画像アセット
+├── Gunchin Cult.md           # 企画・コンセプト原稿
+└── SITEMAP.md                # 本ファイル
+```
+
+---
+
+## サイトマップ（URL一覧）
+
+| URL | ページ名 | ファイル | ヘッダー | TOPボタン |
+|---|---|---|---|---|
+| `/` | TOP | `app/page.tsx` | — | — |
+| `/doctrine` | 教義 | `app/doctrine/page.tsx` | ○ | ○ |
+| `/about` | 教団について | `app/about/page.tsx` | ○ | ○ |
+| `/sayings` | お言葉 | `app/sayings/page.tsx` | ○ | ○ |
+| `/join` | 入信 | `app/join/page.tsx` | ○ | ○ |
+| `/shop` | グンチーンショップ | `app/shop/page.tsx` | ○ | ○ |
+| `/news` | お知らせ | `app/news/page.tsx` | ○ | ○ |
+
+### ナビゲーション順
+
+ヘッダーメニュー・TOPボタンは `siteContent.json` の `nav.menuItems` / `hero.buttons` から読み込む。
+
+1. 教義 → `/doctrine`
+2. 教団について → `/about`
+3. お言葉 → `/sayings`
+4. 入信 → `/join`
+5. グンチーンショップ → `/shop`
+6. お知らせ → `/news`
+
+### サイトマップ（ツリー）
+
+```text
+/
+├── /doctrine          教義
+├── /about             教団について
+│   ├── グンチーン教団とは
+│   ├── 教団年表
+│   ├── グンチーン教団歌（タップで歌詞モーダル）
+│   ├── グンチーン教団舞踏
+│   └── グン様を祈る正しい作法
+├── /sayings           お言葉
+├── /join              入信
+├── /shop              グンチーンショップ
+└── /news              お知らせ
+```
+
+---
+
+## ページ別 構成・機能
+
+### `/` — TOP
+
+| セクション | 内容 | JSONキー |
+|---|---|---|
+| 入口演出 | 初回訪問時: エンブレム → クリック → 「チーン／チーン」→ TOP表示 | `brand` |
+| ファーストビュー | キャッチコピー・サブコピー・遷移ボタン | `hero` |
+| フッター | 共通フッター | `footer` |
+
+**特記事項**
+
+- 初回のみ入口演出。`sessionStorage`（`gunchin-intro-seen`）または `/#top` でスキップ
+- TOPは `SiteNav` + ヒーロー + `SiteFooter` のみ（他セクションは各ページへ分離）
+- ロゴリンク: `/#top`（入口スキップ）
+
+---
+
+### `/doctrine` — 教義
+
+| セクション | 内容 | JSONキー |
+|---|---|---|
+| ページタイトル | DOCTRINE / 教義 | `mainDoctrine` |
+| メイン教義 | 大きな教義文＋エンブレム | `mainDoctrine` |
+| 三大教義 | 3カラムカード | `doctrines[]` |
+
+**レイアウト:** `PageShell`（共通ナビ・背景・フッター）
+
+---
+
+### `/about` — 教団について
+
+| セクション | 内容 | JSONキー |
+|---|---|---|
+| ページタイトル | ABOUT US / 教団について | `timeline.eyebrow` |
+| グンチーン教団とは | 紹介文・画像 | `about` |
+| 教団年表 | 横スクロールカード（PHASE・日付・タイトル・本文） | `timeline.items[]` |
+| グンチーン教団歌 | カード（タップで歌詞モーダル） | `ritualCards[]`（`eyebrow: 教団歌`） |
+| グンチーン教団舞踏 | カード | `ritualCards[]`（`eyebrow: 演舞`） |
+| グン様を祈る正しい作法 | カード | `ritualCards[]`（`eyebrow: 作法`） |
+
+**特記事項**
+
+- 教団歌カードに `lyrics` フィールドがある場合、クリックで歌詞モーダルを表示
+- 年表の `phase` は JSON で個別編集可能（例: `PHASE 1` / `2026/06/22`）
+
+---
+
+### `/sayings` — お言葉
+
+| セクション | 内容 | JSONキー |
+|---|---|---|
+| ページタイトル | WORDS / グン様のありがたいお言葉 | `sayings` |
+| お言葉一覧 | 3カラムカード | `sayings.items[]` |
+
+---
+
+### `/join` — 入信
+
+| セクション | 内容 | JSONキー |
+|---|---|---|
+| 入信案内 | タイトル・本文・画像 | `join` |
+| 入信ボタン | クリックで成功メッセージ表示 | `join.buttonLabel` / `join.successMessage` |
+
+---
+
+### `/shop` — グンチーンショップ
+
+| セクション | 内容 | JSONキー |
+|---|---|---|
+| ページタイトル | GUNCHIN SHOP / グンチーンショップ | `goods` |
+| グングッズ一覧 | 商品名・価格・説明・画像 | `goods.items[]` |
+
+---
+
+### `/news` — お知らせ
+
+| セクション | 内容 | JSONキー |
+|---|---|---|
+| ページタイトル | NEWS / お知らせ | `news` |
+| お知らせ一覧 | 日付・タイトル・本文・画像 | `news.items[]` |
+
+**特記事項**
+
+- 表示順は日付（`YYYY/MM/DD`）の新しい順（JSON内の並び順は不問）
+
+---
+
+## 共通コンポーネント（`components/SiteChrome.tsx`）
+
+| コンポーネント | 役割 | 使用箇所 |
+|---|---|---|
+| `SiteNav` | 固定ヘッダー・PC横メニュー・SPハンバーガー | TOP + 全サブページ |
+| `SiteFooter` | フッター | TOP + 全サブページ |
+| `PageShell` | 背景 + ナビ + コンテンツ + フッター | サブページ共通 |
+| `Background` | Three.js粒子 + グラデーション背景 | `PageShell` 内 |
+| `SectionTitle` | ページ上部の eyebrow + タイトル | 各サブページ |
+| `ContentImage` | 画像表示（未設定時は fallback） | 各ページ |
+| `renderMultiline` | `\n` 改行対応テキスト表示 | 全ページ |
+
+---
+
+## コンテンツ定義（`content/siteContent.json`）
+
+| キー | 用途 |
+|---|---|
+| `brand` | ロゴ・エンブレム・サイト名 |
+| `nav.menuItems` | ヘッダーメニュー |
+| `hero` | TOPファーストビュー |
+| `mainDoctrine` | 教義ページ・メイン教義 |
+| `doctrines` | 教義ページ・三大教義 |
+| `about` | 教団について・紹介 |
+| `timeline` | 教団について・年表 |
+| `ritualCards` | 教団について・教団歌 / 演舞 / 作法 |
+| `sayings` | お言葉ページ |
+| `goods` | ショップページ |
+| `news` | お知らせページ |
+| `join` | 入信ページ |
+| `footer` | フッター（全ページ共通） |
+
+詳細な編集方法は `content/README.md` を参照。
+
+---
+
+## 静的アセット
+
+| パス | 用途 |
+|---|---|
+| `public/images/` | サイト画像（JSONでは `/images/ファイル名` で指定） |
+| `public/images/gunchin_emblem.png` | 教団エンブレム（デフォルト） |
+
+---
+
+## 更新履歴メモ
+
+本ファイルはサイト構造のスナップショットです。ページ追加・ナビ変更・JSONキー追加があった場合は、あわせて更新してください。
