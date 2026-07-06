@@ -141,15 +141,15 @@ export default function Home() {
       <main className="grid min-h-screen place-items-center overflow-hidden bg-[#050505] text-white">
         {introChanting ? (
           <motion.div
-            className="px-6 text-[4.5rem] font-black leading-none tracking-[0.18em] text-gold sm:text-[6rem] md:text-[8rem]"
+            className="px-4 text-[clamp(2.75rem,12vw,8rem)] font-black leading-none tracking-[0.14em] text-gold sm:px-6 sm:tracking-[0.18em]"
             initial={{ opacity: 0, scale: 0.82, filter: "blur(12px)" }}
             animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
             transition={{ duration: 0.55, ease: "easeOut" }}
           >
-            <div>
+            <div className="whitespace-nowrap">
               <span>チーン</span>
             </div>
-            <div className="mt-12 md:mt-16" style={{ paddingLeft: "min(26vw, 360px)" }}>
+            <div className="mt-10 whitespace-nowrap pl-[min(14vw,360px)] sm:mt-12 sm:pl-[min(20vw,360px)] md:mt-16 md:pl-[min(26vw,360px)]">
               <span>チーン</span>
             </div>
           </motion.div>

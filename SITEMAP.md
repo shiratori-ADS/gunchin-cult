@@ -39,9 +39,22 @@ gunchin-cult/
 │   └── README.md             # JSON編集ガイド
 ├── public/
 │   └── images/               # 画像アセット
+├── .gitignore                # Git除外設定
 ├── Gunchin Cult.md           # 企画・コンセプト原稿
 └── SITEMAP.md                # 本ファイル
 ```
+
+---
+
+## 公開情報
+
+| 項目 | URL |
+|---|---|
+| 本番（Vercel） | https://gunchin-cult.vercel.app/ |
+| GitHub リポジトリ | https://github.com/shiratori-ADS/gunchin-cult |
+| ホスティング | [Vercel](https://vercel.com)（GitHub 連携・自動デプロイ） |
+
+`main` ブランチへ push すると、Vercel が自動でビルド・公開します。
 
 ---
 
@@ -77,12 +90,12 @@ gunchin-cult/
 │   ├── グンチーン教団とは
 │   ├── 教団年表
 │   ├── グンチーン教団歌（タップで歌詞モーダル）
-│   ├── グンチーン教団舞踏
-│   └── グン様を祈る正しい作法
-├── /sayings           お言葉
+│   ├── グンチーン教団舞踏（タップでイラスト一覧・拡大）
+│   └── グン様を祈る正しい作法（タップでイラスト一覧・拡大）
+├── /sayings           お言葉（イラスト拡大）
 ├── /join              入信
-├── /shop              グンチーンショップ
-└── /news              お知らせ
+├── /shop              グンチーンショップ（イラスト拡大）
+└── /news              お知らせ（イラスト拡大）
 ```
 
 ---
@@ -110,8 +123,13 @@ gunchin-cult/
 | セクション | 内容 | JSONキー |
 |---|---|---|
 | ページタイトル | DOCTRINE / 教義 | `mainDoctrine` |
-| メイン教義 | 大きな教義文＋エンブレム | `mainDoctrine` |
-| 三大教義 | 3カラムカード | `doctrines[]` |
+| メイン教義 | エンブレム → 降臨イラスト → 教義文 | `mainDoctrine` / `mainDoctrine.adventImage` |
+| 三大教義 | 3カラムカード（教義文 + 補足文） | `doctrines[]` |
+
+**特記事項**
+
+- `adventImage` がある場合、グン様イラストが上から降臨する演出を表示
+- 三大教義は `text`（見出し）と `body`（補足文）を表示
 
 **レイアウト:** `PageShell`（共通ナビ・背景・フッター）
 
@@ -125,12 +143,13 @@ gunchin-cult/
 | グンチーン教団とは | 紹介文・画像 | `about` |
 | 教団年表 | 横スクロールカード（PHASE・日付・タイトル・本文） | `timeline.items[]` |
 | グンチーン教団歌 | カード（タップで歌詞モーダル） | `ritualCards[]`（`eyebrow: 教団歌`） |
-| グンチーン教団舞踏 | カード | `ritualCards[]`（`eyebrow: 演舞`） |
-| グン様を祈る正しい作法 | カード | `ritualCards[]`（`eyebrow: 作法`） |
+| グンチーン教団舞踏 | カード（タップでイラスト横スクロール一覧・拡大） | `ritualCards[]`（`eyebrow: 演舞`） |
+| グン様を祈る正しい作法 | カード（タップでイラスト横スクロール一覧・拡大） | `ritualCards[]`（`eyebrow: 作法`） |
 
 **特記事項**
 
-- 教団歌カードに `lyrics` フィールドがある場合、クリックで歌詞モーダルを表示
+- 教団歌カードに `lyrics` フィールドがある場合、クリックで歌詞モーダル（1番・2番・3番対応）を表示
+- 演舞・作法カードに `gallery` 配列がある場合、クリックでイラスト一覧を表示（作法はラベル: 心得 / 作法1…）
 - 年表の `phase` は JSON で個別編集可能（例: `PHASE 1` / `2026/06/22`）
 
 ---
@@ -141,6 +160,10 @@ gunchin-cult/
 |---|---|---|
 | ページタイトル | WORDS / グン様のありがたいお言葉 | `sayings` |
 | お言葉一覧 | 3カラムカード | `sayings.items[]` |
+
+**特記事項**
+
+- イラストをタップすると拡大表示（ライトボックス）
 
 ---
 
@@ -160,6 +183,10 @@ gunchin-cult/
 | ページタイトル | GUNCHIN SHOP / グンチーンショップ | `goods` |
 | グングッズ一覧 | 商品名・価格・説明・画像 | `goods.items[]` |
 
+**特記事項**
+
+- 商品イラストをタップすると拡大表示
+
 ---
 
 ### `/news` — お知らせ
@@ -172,6 +199,7 @@ gunchin-cult/
 **特記事項**
 
 - 表示順は日付（`YYYY/MM/DD`）の新しい順（JSON内の並び順は不問）
+- イラストは全体表示（`object-contain`）。タップで拡大表示
 
 ---
 
@@ -196,11 +224,11 @@ gunchin-cult/
 | `brand` | ロゴ・エンブレム・サイト名 |
 | `nav.menuItems` | ヘッダーメニュー |
 | `hero` | TOPファーストビュー |
-| `mainDoctrine` | 教義ページ・メイン教義 |
-| `doctrines` | 教義ページ・三大教義 |
+| `mainDoctrine` | 教義ページ・メイン教義・降臨イラスト（`adventImage`） |
+| `doctrines` | 教義ページ・三大教義（`text` / `body`） |
 | `about` | 教団について・紹介 |
 | `timeline` | 教団について・年表 |
-| `ritualCards` | 教団について・教団歌 / 演舞 / 作法 |
+| `ritualCards` | 教団について・教団歌（`lyrics`）/ 演舞・作法（`gallery`） |
 | `sayings` | お言葉ページ |
 | `goods` | ショップページ |
 | `news` | お知らせページ |
@@ -220,6 +248,60 @@ gunchin-cult/
 
 ---
 
+## 更新の流れ（コミット → push → 公開）
+
+サイトの文言・画像を変更したあと、本番（Vercel）へ反映する手順です。
+
+### 1. ローカルで確認
+
+```powershell
+cd C:\Projects\gunchin-cult
+npm run dev
+```
+
+ブラウザで表示を確認してからコミットします。
+
+### 2. 変更をコミット
+
+```powershell
+cd C:\Projects\gunchin-cult
+
+# 変更確認
+git status
+
+# ステージング
+git add .
+
+# コミット（メッセージは内容に合わせて変更）
+git commit -m "お知らせを追加"
+```
+
+### 3. GitHub へ push
+
+```powershell
+git push origin main
+```
+
+push が完了すると、Vercel が自動でビルド・デプロイします（通常 1〜2 分）。
+
+### 4. 本番を確認
+
+https://gunchin-cult.vercel.app/ を開き、変更が反映されているか確認します。
+
+### 補足
+
+- リモート: `origin` → `https://github.com/shiratori-ADS/gunchin-cult.git`
+- ブランチ: `main`
+- Vercel の環境変数は不要（`siteContent.json` のみで運用）
+- 初回のみ Git のユーザー設定が必要:
+
+```powershell
+git config --global user.name "あなたの名前"
+git config --global user.email "あなたのメール"
+```
+
+---
+
 ## 更新履歴メモ
 
-本ファイルはサイト構造のスナップショットです。ページ追加・ナビ変更・JSONキー追加があった場合は、あわせて更新してください。
+本ファイルはサイト構造のスナップショットです。ページ追加・ナビ変更・JSONキー追加・公開手順の変更があった場合は、あわせて更新してください。

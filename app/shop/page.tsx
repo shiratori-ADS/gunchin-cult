@@ -57,16 +57,16 @@ export default function ShopPage() {
                 onClick={() => setExpandedImage({ src: item.image, alt: item.imageAlt })}
                 aria-label={`${item.imageAlt}を拡大表示`}
               >
-                <img src={item.image} alt={item.imageAlt} className="aspect-[4/3] w-full object-cover" />
+                <img src={item.image} alt={item.imageAlt} className="aspect-[4/3] w-full object-cover object-top" />
               </button>
             ) : (
               <div className="mb-6 grid aspect-[4/3] place-items-center overflow-hidden rounded-[28px] border border-white/10 bg-[radial-gradient(circle,rgba(215,179,90,0.28),rgba(255,255,255,0.06)_42%,rgba(0,0,0,0.4))] text-6xl font-black text-gold transition group-hover:scale-[1.03]">
                 {renderMultiline(siteContent.goods.imageGlyph)}
               </div>
             )}
-            <div className="flex items-start justify-between gap-4">
+            <div>
               <h2 className="text-2xl font-black text-white">{renderMultiline(item.name)}</h2>
-              <p className="shrink-0 text-sm font-black text-gold">{renderMultiline(item.price)}</p>
+              <p className="mt-2 text-sm font-black leading-relaxed text-gold">{renderMultiline(item.price)}</p>
             </div>
             <p className="mt-4 leading-8 text-white/62">{renderMultiline(item.detail)}</p>
           </motion.article>

@@ -76,6 +76,16 @@ export function Background() {
 export function SiteNav() {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const handleEmblemIntroClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    setMenuOpen(false);
+    sessionStorage.removeItem("gunchin-intro-seen");
+
+    if (window.location.pathname === "/") {
+      event.preventDefault();
+      window.location.href = "/";
+    }
+  };
+
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
 
@@ -98,14 +108,27 @@ export function SiteNav() {
   return (
     <>
       <nav className="fixed left-1/2 top-5 z-50 flex w-[min(980px,calc(100%-32px))] -translate-x-1/2 items-center justify-between rounded-full border border-white/10 bg-black/35 px-5 py-3 shadow-glow backdrop-blur-2xl">
-        <Link href="/#top" className="flex items-center gap-3 text-sm font-black tracking-[0.22em] text-white" onClick={() => setMenuOpen(false)}>
-          {siteContent.brand.emblemImage.trim() ? (
-            <img src={siteContent.brand.emblemImage} alt="グンチーン教団エンブレム" className="nav-emblem" />
-          ) : (
-            <span className="nav-emblem grid place-items-center text-gold">{renderMultiline(siteContent.brand.emblemText)}</span>
-          )}
-          {renderMultiline(siteContent.brand.navTitle)}
-        </Link>
+        <div className="flex items-center gap-3">
+          <Link
+            href="/"
+            className="shrink-0"
+            aria-label="入口演出を再生する"
+            onClick={handleEmblemIntroClick}
+          >
+            {siteContent.brand.emblemImage.trim() ? (
+              <img src={siteContent.brand.emblemImage} alt="グンチーン教団エンブレム" className="nav-emblem" />
+            ) : (
+              <span className="nav-emblem grid place-items-center text-gold">{renderMultiline(siteContent.brand.emblemText)}</span>
+            )}
+          </Link>
+          <Link
+            href="/#top"
+            className="text-sm font-black tracking-[0.22em] text-white"
+            onClick={() => setMenuOpen(false)}
+          >
+            {renderMultiline(siteContent.brand.navTitle)}
+          </Link>
+        </div>
 
         <div className="hidden items-center gap-5 text-xs font-bold tracking-[0.16em] text-white/70 md:flex">
           {siteContent.nav.menuItems.map((item) => (
