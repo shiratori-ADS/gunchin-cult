@@ -84,22 +84,20 @@ export default function SayingsPage() {
               </button>
             )}
             <p className="mb-6 text-sm font-black tracking-[0.35em] text-gold">0{index + 1}</p>
-            <div className="flex items-start justify-between gap-4">
-              <h2 className="flex-1 text-2xl font-black leading-9 text-white">{renderMultiline(item.text)}</h2>
-              {hasExpandable && (
-                <button
-                  type="button"
-                  className="mt-1 grid size-8 shrink-0 place-items-center rounded-full border border-gold/35 bg-white/5 text-sm text-gold transition hover:border-gold/60 hover:bg-white/10"
-                  onClick={() => toggleBody(index)}
-                  aria-expanded={isBodyOpen}
-                  aria-label={isBodyOpen ? "補足文を閉じる" : "補足文を表示する"}
-                >
-                  <span className={`transition-transform duration-300 ${isBodyOpen ? "rotate-180" : ""}`}>▼</span>
-                </button>
-              )}
-            </div>
+            <h2 className="text-2xl font-black leading-9 text-white">{renderMultiline(item.text)}</h2>
             {hasExpandable && (
               <>
+                <div className="mt-3 flex justify-end">
+                  <button
+                    type="button"
+                    className="grid size-8 place-items-center rounded-full border border-gold/35 bg-white/5 text-sm text-gold transition hover:border-gold/60 hover:bg-white/10"
+                    onClick={() => toggleBody(index)}
+                    aria-expanded={isBodyOpen}
+                    aria-label={isBodyOpen ? "補足文を閉じる" : "補足文を表示する"}
+                  >
+                    <span className={`transition-transform duration-300 ${isBodyOpen ? "rotate-180" : ""}`}>▼</span>
+                  </button>
+                </div>
                 <AnimatePresence initial={false}>
                   {isBodyOpen && (
                     <motion.div
