@@ -69,6 +69,15 @@ export default function ShopPage() {
               <p className="mt-2 text-sm font-black leading-relaxed text-gold">{renderMultiline(item.price)}</p>
             </div>
             <p className="mt-4 leading-8 text-white/62">{renderMultiline(item.detail)}</p>
+            {item.image ? (
+              <button
+                type="button"
+                className="mt-6 rounded-full border border-gold/50 bg-white/10 px-6 py-3 text-xs font-black tracking-[0.18em] text-white transition hover:border-gold hover:bg-white/20 hover:text-gold"
+                onClick={() => setExpandedImage({ src: item.image, alt: item.imageAlt })}
+              >
+                カタログを見る
+              </button>
+            ) : null}
           </motion.article>
         ))}
       </div>
