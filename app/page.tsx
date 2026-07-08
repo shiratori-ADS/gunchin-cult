@@ -235,17 +235,17 @@ export default function Home() {
           <p className="mb-4 text-sm font-bold tracking-[0.5em] text-gold/80">{renderMultiline(siteContent.hero.eyebrow)}</p>
           <h1 className="text-5xl font-black leading-tight tracking-[-0.06em] text-white md:text-8xl">{renderMultiline(siteContent.hero.catchcopy)}</h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-9 text-white/76 md:text-2xl">{renderMultiline(siteContent.hero.subcopy)}</p>
-          <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
+          <div className="mt-10 flex flex-col items-center gap-4">
             {siteContent.hero.buttons.map((button) => (
               <a
                 key={button.href}
                 href={button.href}
                 className={
                   button.variant === "primary"
-                    ? "glow-button rounded-full bg-gold px-8 py-4 text-sm font-black tracking-[0.24em] text-black"
+                    ? "glow-button inline-flex w-72 items-center justify-center rounded-full bg-gold px-6 py-4 text-sm font-black tracking-[0.24em] text-black"
                     : button.variant === "secondary"
-                      ? "rounded-full border border-gold/50 bg-white/10 px-8 py-4 text-sm font-black tracking-[0.24em] text-white backdrop-blur transition hover:bg-white/20"
-                      : "rounded-full border border-white/15 bg-black/40 px-8 py-4 text-sm font-black tracking-[0.24em] text-white/85 backdrop-blur transition hover:text-gold"
+                      ? "inline-flex w-72 items-center justify-center rounded-full border border-gold/50 bg-white/10 px-6 py-4 text-sm font-black tracking-[0.24em] text-white backdrop-blur transition hover:bg-white/20"
+                      : "inline-flex w-72 items-center justify-center rounded-full border border-white/15 bg-black/40 px-6 py-4 text-sm font-black tracking-[0.24em] text-white/85 backdrop-blur transition hover:text-gold"
                 }
               >
                 {renderMultiline(button.label)}

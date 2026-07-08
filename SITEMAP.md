@@ -27,6 +27,7 @@ gunchin-cult/
 │   ├── globals.css           # グローバルCSS / Tailwind
 │   ├── page.tsx              # TOP（/）
 │   ├── doctrine/page.tsx     # 教義（/doctrine）
+│   ├── scripture/page.tsx    # 経典（/scripture）
 │   ├── about/page.tsx        # 教団について（/about）
 │   ├── sayings/page.tsx      # お言葉（/sayings）
 │   ├── join/page.tsx         # 入信（/join）
@@ -64,6 +65,7 @@ gunchin-cult/
 |---|---|---|---|---|
 | `/` | TOP | `app/page.tsx` | — | — |
 | `/doctrine` | 教義 | `app/doctrine/page.tsx` | ○ | ○ |
+| `/scripture` | 経典 | `app/scripture/page.tsx` | ○ | ○ |
 | `/about` | 教団について | `app/about/page.tsx` | ○ | ○ |
 | `/sayings` | お言葉 | `app/sayings/page.tsx` | ○ | ○ |
 | `/join` | 入信 | `app/join/page.tsx` | ○ | ○ |
@@ -75,17 +77,19 @@ gunchin-cult/
 ヘッダーメニュー・TOPボタンは `siteContent.json` の `nav.menuItems` / `hero.buttons` から読み込む。
 
 1. 教義 → `/doctrine`
-2. 教団について → `/about`
-3. お言葉 → `/sayings`
-4. 入信 → `/join`
-5. グンチーンショップ → `/shop`
-6. お知らせ → `/news`
+2. 経典 → `/scripture`
+3. 教団について → `/about`
+4. お言葉 → `/sayings`
+5. 入信 → `/join`
+6. グンチーンショップ → `/shop`
+7. お知らせ → `/news`
 
 ### サイトマップ（ツリー）
 
 ```text
 /
-├── /doctrine          教義
+├── /doctrine          教義（降臨イラスト）
+├── /scripture         経典（全6章）
 ├── /about             教団について
 │   ├── グンチーン教団とは
 │   ├── 教団年表
@@ -93,8 +97,8 @@ gunchin-cult/
 │   ├── グンチーン教団舞踏（タップでイラスト一覧・拡大）
 │   └── グン様を祈る正しい作法（タップでイラスト一覧・拡大）
 ├── /sayings           お言葉（イラスト拡大）
-├── /join              入信
-├── /shop              グンチーンショップ（イラスト拡大）
+├── /join              入信（成功メッセージ＋信者証）
+├── /shop              グンチーンショップ（イラスト拡大・カタログ）
 └── /news              お知らせ（イラスト拡大）
 ```
 
@@ -114,7 +118,9 @@ gunchin-cult/
 
 - 初回のみ入口演出。`sessionStorage`（`gunchin-intro-seen`）または `/#top` でスキップ
 - TOPは `SiteNav` + ヒーロー + `SiteFooter` のみ（他セクションは各ページへ分離）
-- ロゴリンク: `/#top`（入口スキップ）
+- ヘッダーのサイト名テキスト: `/#top`（入口スキップ）
+- ヘッダーのエンブレム画像: `/`（入口演出を再再生。`gunchin-intro-seen` を削除）
+- TOPボタンは PC / スマホとも縦並び・固定幅（`w-72`）
 
 ---
 
@@ -129,9 +135,24 @@ gunchin-cult/
 **特記事項**
 
 - `adventImage` がある場合、グン様イラストが上から降臨する演出を表示
+- 降臨イラストは正方形枠（`aspect-square`）に `object-cover` で枠いっぱいに表示
 - 三大教義は `text`（見出し）と `body`（補足文）を表示
 
 **レイアウト:** `PageShell`（共通ナビ・背景・フッター）
+
+---
+
+### `/scripture` — 経典
+
+| セクション | 内容 | JSONキー |
+|---|---|---|
+| ページタイトル | SCRIPTURE / グンチーン経典 | `scripture` |
+| 章一覧 | 第一章〜第六章（タイトル・本文） | `scripture.chapters[]` |
+
+**特記事項**
+
+- 本文は小さめ（`text-xs` / PCは `text-sm`）で表示
+- 第六章は `chant`（「グングン、チーン。」）と `bodyAfter` を追加表示可能
 
 ---
 
@@ -173,6 +194,12 @@ gunchin-cult/
 |---|---|---|
 | 入信案内 | タイトル・本文・画像 | `join` |
 | 入信ボタン | クリックで成功メッセージ表示 | `join.buttonLabel` / `join.successMessage` |
+| 信者証 | 成功メッセージの下に表示 | `join.certificate` |
+
+**特記事項**
+
+- 入信成功後、ランダムな信者番号付きの信者証カードを表示
+- `certificate.image` を設定すると、カードUIの代わりに画像を表示
 
 ---
 
@@ -185,7 +212,9 @@ gunchin-cult/
 
 **特記事項**
 
-- 商品イラストをタップすると拡大表示
+- 価格は商品名の直下に表示
+- サムネイルは上基準（`object-top`）。タップで拡大表示
+- `detail` の下に「カタログを見る」ボタン（同じ画像をライトボックス表示）
 
 ---
 
@@ -215,6 +244,13 @@ gunchin-cult/
 | `ContentImage` | 画像表示（未設定時は fallback） | 各ページ |
 | `renderMultiline` | `\n` 改行対応テキスト表示 | 全ページ |
 
+**ヘッダーのリンク分離**
+
+| 要素 | 遷移先 | 動作 |
+|---|---|---|
+| エンブレム画像 | `/` | 入口演出を再再生 |
+| サイト名テキスト | `/#top` | TOPヒーローへ（入口スキップ） |
+
 ---
 
 ## コンテンツ定義（`content/siteContent.json`）
@@ -223,16 +259,17 @@ gunchin-cult/
 |---|---|
 | `brand` | ロゴ・エンブレム・サイト名 |
 | `nav.menuItems` | ヘッダーメニュー |
-| `hero` | TOPファーストビュー |
+| `hero` | TOPファーストビュー・遷移ボタン |
 | `mainDoctrine` | 教義ページ・メイン教義・降臨イラスト（`adventImage`） |
 | `doctrines` | 教義ページ・三大教義（`text` / `body`） |
+| `scripture` | 経典ページ（`chapters[]` / `chant` / `bodyAfter`） |
 | `about` | 教団について・紹介 |
 | `timeline` | 教団について・年表 |
 | `ritualCards` | 教団について・教団歌（`lyrics`）/ 演舞・作法（`gallery`） |
 | `sayings` | お言葉ページ |
 | `goods` | ショップページ |
 | `news` | お知らせページ |
-| `join` | 入信ページ |
+| `join` | 入信ページ・成功メッセージ・信者証（`certificate`） |
 | `footer` | フッター（全ページ共通） |
 
 詳細な編集方法は `content/README.md` を参照。
@@ -245,6 +282,7 @@ gunchin-cult/
 |---|---|
 | `public/images/` | サイト画像（JSONでは `/images/ファイル名` で指定） |
 | `public/images/gunchin_emblem.png` | 教団エンブレム（デフォルト） |
+| `public/images/gunsama_advent.png` | 教義ページ・降臨イラスト |
 
 ---
 

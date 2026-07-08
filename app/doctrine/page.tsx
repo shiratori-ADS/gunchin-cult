@@ -39,7 +39,7 @@ export default function DoctrinePage() {
         </motion.div>
 
         {adventImage && (
-          <div className="doctrine-advent mx-auto mb-8 w-full max-w-2xl">
+          <div className="doctrine-advent mx-auto mb-8 w-full max-w-4xl">
             {!prefersReducedMotion && (
               <>
                 <motion.div
@@ -78,8 +78,8 @@ export default function DoctrinePage() {
                 image={adventImage}
                 imageAlt={siteContent.mainDoctrine.adventImageAlt}
                 fallback={null}
-                className="aspect-[4/3] w-full overflow-hidden rounded-[30px] border border-gold/30 bg-black/30 p-3 shadow-[0_0_60px_rgba(215,179,90,0.35)]"
-                imageClassName="h-full w-full object-contain"
+                className="aspect-square w-full overflow-hidden rounded-[30px] border border-gold/30 bg-black/30 shadow-[0_0_60px_rgba(215,179,90,0.35)]"
+                imageClassName="h-full w-full object-cover"
               />
             </motion.div>
           </div>
