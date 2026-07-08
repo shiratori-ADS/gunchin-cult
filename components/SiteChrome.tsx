@@ -175,7 +175,7 @@ export function SiteNav() {
             onClick={() => setMenuOpen(false)}
           >
             <motion.div
-              className="absolute left-1/2 top-24 w-[min(420px,calc(100%-32px))] -translate-x-1/2 rounded-[32px] border border-gold/30 bg-[linear-gradient(180deg,rgba(215,179,90,0.18),rgba(5,5,5,0.92))] p-8 shadow-glow"
+              className="absolute left-1/2 top-24 max-h-[calc(100dvh-7rem)] w-[min(420px,calc(100%-32px))] -translate-x-1/2 overflow-y-auto overscroll-contain rounded-[32px] border border-gold/30 bg-[linear-gradient(180deg,rgba(215,179,90,0.18),rgba(5,5,5,0.92))] p-8 shadow-glow"
               initial={{ opacity: 0, y: -16, scale: 0.96 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -16, scale: 0.96 }}
