@@ -13,7 +13,20 @@ type ExpandedImage = {
 
 export default function SayingsPage() {
   const [expandedImage, setExpandedImage] = useState<ExpandedImage | null>(null);
+  const [expandedBodies, setExpandedBodies] = useState<Set<number>>(new Set());
   const [mounted, setMounted] = useState(false);
+
+  const toggleBody = (index: number) => {
+    setExpandedBodies((current) => {
+      const next = new Set(current);
+      if (next.has(index)) {
+        next.delete(index);
+      } else {
+        next.add(index);
+      }
+      return next;
+    });
+  };
 
   useEffect(() => {
     setMounted(true);
@@ -43,9 +56,13 @@ export default function SayingsPage() {
       <SectionTitle eyebrow={siteContent.sayings.eyebrow} title={siteContent.sayings.title} />
 
       <div className="mx-auto grid max-w-6xl gap-5 md:grid-cols-3">
-        {siteContent.sayings.items.map((item, index) => (
+        {siteContent.sayings.items.map((item, index) => {
+          const isBodyOpen = expandedBodies.has(index);
+          const hasExpandable = Boolean(item.body?.trim() || item.italic?.trim() || item.churchNote?.trim());
+
+          return (
           <motion.article
-            key={item.text}
+            key={`${item.text}-${index}`}
             className="glass-card p-8"
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
@@ -67,9 +84,58 @@ export default function SayingsPage() {
               </button>
             )}
             <p className="mb-6 text-sm font-black tracking-[0.35em] text-gold">0{index + 1}</p>
-            <h2 className="text-2xl font-black leading-9 text-white">{renderMultiline(item.text)}</h2>
+            <div className="flex items-start justify-between gap-4">
+              <h2 className="flex-1 text-2xl font-black leading-9 text-white">{renderMultiline(item.text)}</h2>
+              {hasExpandable && (
+                <button
+                  type="button"
+                  className="mt-1 grid size-8 shrink-0 place-items-center rounded-full border border-gold/35 bg-white/5 text-sm text-gold transition hover:border-gold/60 hover:bg-white/10"
+                  onClick={() => toggleBody(index)}
+                  aria-expanded={isBodyOpen}
+                  aria-label={isBodyOpen ? "補足文を閉じる" : "補足文を表示する"}
+                >
+                  <span className={`transition-transform duration-300 ${isBodyOpen ? "rotate-180" : ""}`}>▼</span>
+                </button>
+              )}
+            </div>
+            {hasExpandable && (
+              <>
+                <AnimatePresence initial={false}>
+                  {isBodyOpen && (
+                    <motion.div
+                      className="overflow-hidden"
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.25 }}
+                    >
+                      {item.body?.trim() && (
+                        <p className="mt-4 text-xs leading-7 text-white/65 md:text-sm md:leading-8">
+                          {renderMultiline(item.body)}
+                        </p>
+                      )}
+                      {item.italic?.trim() && (
+                        <p className="mt-3 text-xs italic leading-7 text-white/50 md:text-sm md:leading-8">
+                          {renderMultiline(item.italic)}
+                        </p>
+                      )}
+                      {item.churchNote?.trim() && (
+                        <>
+                          <div className="mt-4 border-t border-gold/30" aria-hidden="true" />
+                          <p className="mt-3 text-xs leading-7 text-white/55 md:text-sm md:leading-8">
+                            <span className="font-black text-gold/75">教団註　</span>
+                            {renderMultiline(item.churchNote)}
+                          </p>
+                        </>
+                      )}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </>
+            )}
           </motion.article>
-        ))}
+          );
+        })}
       </div>
 
       {mounted &&
