@@ -18,8 +18,8 @@
   },
   "hero": {
     "eyebrow": "GUNCHIN CHURCH OFFICIAL",
-    "catchcopy": "すべては、\nグングン良くなる。",
-    "subcopy": "グン様の導きで、あなたの人生はグングン前へ。",
+    "catchcopy": "すべては、\nグングン\n良くなる。",
+    "subcopy": "グン様の導きで、\nあなたの人生はグングン前へ。",
     "image": "/images/gunsama.png",
     "imageAlt": "光に包まれたグン様",
     "buttons": [
@@ -58,7 +58,7 @@
   "mainDoctrine": {
     "eyebrow": "DOCTRINE",
     "title": "教義",
-    "text": "「すべてはグングン良くなる。」",
+    "text": "すべてはグングン良くなる。",
     "image": "",
     "imageAlt": "金色のエンブレム",
     "adventImage": "/images/gunsama_advent.png",
@@ -238,7 +238,7 @@
       {
         "name": "グンチーンボール",
         "price": "セット　1,600,000円\nライトボール　1,000,000円\nレフトボール　900,000円",
-        "detail": "グン様の無限の地合いと光を宿した、神聖なる純金の玉。人生のすべてがグン様の導きに包まれます。",
+        "detail": "グン様の無限の慈愛と光を宿した、神聖なる純金の玉。人生のすべてがグン様の導きに包まれます。",
         "image": "/images/gunchin_shop01.png",
         "imageAlt": "グンチーンボール"
       },
@@ -323,7 +323,7 @@
   "join": {
     "eyebrow": "JOIN US",
     "title": "あなたも今日からグングン。",
-    "body": "ボタンを押すだけで、気持ちだけは立派な信者。\n登録フォームも審査もありません。",
+    "body": "ボタンを押すだけで、\n気持ちだけは立派な信者。\n登録フォームも審査もありません。",
     "image": "",
     "imageAlt": "入信案内のイメージ",
     "buttonLabel": "入信する",
