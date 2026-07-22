@@ -13,6 +13,7 @@
       { "label": "教団について", "href": "/about" },
       { "label": "お言葉", "href": "/sayings" },
       { "label": "入信", "href": "/join" },
+      { "label": "メディア", "href": "/media" },
       { "label": "グンチーンショップ", "href": "/shop" },
       { "label": "お知らせ", "href": "/news" }
     ]
@@ -48,6 +49,11 @@
         "label": "入信",
         "href": "/join",
         "variant": "secondary"
+      },
+      {
+        "label": "メディア",
+        "href": "/media",
+        "variant": "dark"
       },
       {
         "label": "グンチーンショップ",
@@ -247,6 +253,23 @@
       ]
     }
   ],
+  "alliedGroups": {
+    "title": "友好団体",
+    "items": [
+      {
+        "name": "真カタクリ会",
+        "body": "",
+        "image": "",
+        "imageAlt": "真カタクリ会のイメージ"
+      },
+      {
+        "name": "山芋の光",
+        "body": "",
+        "image": "",
+        "imageAlt": "山芋の光のイメージ"
+      }
+    ]
+  },
   "sayings": {
     "eyebrow": "WORDS",
     "title": "グン様のありがたいお言葉",
@@ -395,6 +418,28 @@
       "image": "",
       "imageAlt": "グンチーン教団 信者証"
     }
+  },
+  "media": {
+    "eyebrow": "MEDIA",
+    "title": "メディア",
+    "items": [
+      {
+        "title": "グンゲリオン",
+        "body": "グン様の教えを胸に、信者たちが巨大なグンゲリオンと共に世界を救う壮大な物語。愛と涙の超グンチーン巨編！",
+        "image": "/images/gungerion01.png",
+        "imageAlt": "メディアのサムネイル",
+        "detailImage": "/images/gungerion01.png",
+        "detailImageAlt": "メディアの詳細画像"
+      },
+      {
+        "title": "進撃のグン様",
+        "body": "壁の向こうから現れた巨大なグン様。信者たちは恐怖と信仰の狭間で運命に立ち向かう。信者たちの「チーン！」が世界を揺るがす、感動のスペクタクル！",
+        "image": "/images/attackofgun01.png",
+        "imageAlt": "メディアのサムネイル",
+        "detailImage": "/images/attackofgun01.png",
+        "detailImageAlt": "メディアの詳細画像"
+      }
+    ]
   },
   "footer": {
     "message": "今日もグングン。",

@@ -31,6 +31,7 @@ gunchin-cult/
 │   ├── about/page.tsx        # 教団について（/about）
 │   ├── sayings/page.tsx      # お言葉（/sayings）
 │   ├── join/page.tsx         # 入信（/join）
+│   ├── media/page.tsx        # メディア（/media）
 │   ├── shop/page.tsx         # グンチーンショップ（/shop）
 │   └── news/page.tsx         # お知らせ（/news）
 ├── components/
@@ -69,6 +70,7 @@ gunchin-cult/
 | `/about` | 教団について | `app/about/page.tsx` | ○ | ○ |
 | `/sayings` | お言葉 | `app/sayings/page.tsx` | ○ | ○ |
 | `/join` | 入信 | `app/join/page.tsx` | ○ | ○ |
+| `/media` | メディア | `app/media/page.tsx` | ○ | ○ |
 | `/shop` | グンチーンショップ | `app/shop/page.tsx` | ○ | ○ |
 | `/news` | お知らせ | `app/news/page.tsx` | ○ | ○ |
 
@@ -81,8 +83,9 @@ gunchin-cult/
 3. 教団について → `/about`
 4. お言葉 → `/sayings`
 5. 入信 → `/join`
-6. グンチーンショップ → `/shop`
-7. お知らせ → `/news`
+6. メディア → `/media`
+7. グンチーンショップ → `/shop`
+8. お知らせ → `/news`
 
 ### サイトマップ（ツリー）
 
@@ -98,6 +101,7 @@ gunchin-cult/
 │   └── グン様を祈る正しい作法（タップでイラスト一覧・拡大）
 ├── /sayings           お言葉（イラスト拡大・▼で補足文展開）
 ├── /join              入信（成功メッセージ＋信者証）
+├── /media             メディア（サムネイル・詳細画像）
 ├── /shop              グンチーンショップ（イラスト拡大・カタログ）
 └── /news              お知らせ（イラスト拡大）
 ```
@@ -216,6 +220,29 @@ gunchin-cult/
 
 ---
 
+### `/media` — メディア
+
+| セクション | 内容 | JSONキー |
+|---|---|---|
+| ページタイトル | MEDIA / メディア | `media` |
+| メディア一覧 | タイトル・サムネイル・説明文 | `media.items[]` |
+
+**各アイテムのフィールド**
+
+| フィールド | 表示 | 備考 |
+|---|---|---|
+| `title` | タイトル | 必須 |
+| `body` | 説明文 | 必須 |
+| `image` / `imageAlt` | サムネイル | タップで詳細画像を表示 |
+| `detailImage` / `detailImageAlt` | 詳細画像 | 未設定時はサムネイルを拡大表示 |
+
+**特記事項**
+
+- サムネイルをクリックすると詳細画像をライトボックス表示
+- `detailImage` が空の場合は、サムネイル画像をそのまま拡大表示
+
+---
+
 ### `/shop` — グンチーンショップ
 
 | セクション | 内容 | JSONキー |
@@ -288,6 +315,7 @@ gunchin-cult/
 | `goods` | ショップページ |
 | `news` | お知らせページ |
 | `join` | 入信ページ・成功メッセージ・信者証（`certificate`） |
+| `media` | メディアページ（`title` / `body` / `image` / `detailImage`） |
 | `footer` | フッター（全ページ共通） |
 
 詳細な編集方法は `content/README.md` を参照。

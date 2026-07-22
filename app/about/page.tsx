@@ -233,6 +233,34 @@ export default function AboutPage() {
         );
       })}
 
+      <section className="mx-auto mt-16 max-w-6xl">
+        <h2 className={sectionHeadingClass}>{siteContent.alliedGroups.title}</h2>
+        <div className="grid gap-5 sm:grid-cols-2">
+          {siteContent.alliedGroups.items.map((group, index) => (
+            <motion.article
+              key={group.name}
+              className="glass-card p-8"
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.08 }}
+            >
+              {group.image && (
+                <ContentImage
+                  image={group.image}
+                  imageAlt={group.imageAlt}
+                  fallback={null}
+                  className="mb-7 aspect-[4/3] overflow-hidden rounded-[24px] border border-white/10 bg-white/5"
+                />
+              )}
+              <h3 className="text-lg font-black leading-9 text-white">{renderMultiline(group.name)}</h3>
+              {group.body.trim() && (
+                <p className="mt-5 text-lg leading-8 text-white/65">{renderMultiline(group.body)}</p>
+              )}
+            </motion.article>
+          ))}
+        </div>
+      </section>
+
       {mounted &&
         createPortal(
           <AnimatePresence>
