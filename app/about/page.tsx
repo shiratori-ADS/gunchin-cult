@@ -244,15 +244,18 @@ export default function AboutPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.08 }}
             >
-              {group.image && (
-                <ContentImage
-                  image={group.image}
-                  imageAlt={group.imageAlt}
-                  fallback={null}
-                  className="mb-7 aspect-[4/3] overflow-hidden rounded-[24px] border border-white/10 bg-white/5"
-                />
-              )}
-              <h3 className="text-lg font-black leading-9 text-white">{renderMultiline(group.name)}</h3>
+              <div className="flex items-center gap-4">
+                {group.image && (
+                  <ContentImage
+                    image={group.image}
+                    imageAlt={group.imageAlt}
+                    fallback={null}
+                    className="size-16 shrink-0 overflow-hidden rounded-2xl border border-white/10 bg-white/5 sm:size-20"
+                    imageClassName="h-full w-full object-contain p-1"
+                  />
+                )}
+                <h3 className="min-w-0 flex-1 text-lg font-black leading-9 text-white">{renderMultiline(group.name)}</h3>
+              </div>
               {group.body.trim() && (
                 <p className="mt-5 text-lg leading-8 text-white/65">{renderMultiline(group.body)}</p>
               )}

@@ -259,13 +259,13 @@
       {
         "name": "真カタクリ会",
         "body": "",
-        "image": "",
+        "image": "/images/katakuri_emblem.png",
         "imageAlt": "真カタクリ会のイメージ"
       },
       {
         "name": "山芋の光",
         "body": "",
-        "image": "",
+        "image": "/images/yamaimo_emblem.png",
         "imageAlt": "山芋の光のイメージ"
       }
     ]
