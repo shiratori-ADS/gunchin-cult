@@ -234,6 +234,50 @@ export default function AboutPage() {
       })}
 
       <section className="mx-auto mt-16 max-w-6xl">
+        <h2 className={sectionHeadingClass}>{siteContent.organizationChart.title}</h2>
+        <motion.article
+          className="glass-card p-8"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
+          {siteContent.organizationChart.image && (
+            <ContentImage
+              image={siteContent.organizationChart.image}
+              imageAlt={siteContent.organizationChart.imageAlt}
+              fallback={null}
+              className="overflow-hidden rounded-[24px] border border-white/10 bg-white/5"
+              imageClassName="mx-auto max-h-[min(80vh,720px)] w-full object-contain"
+            />
+          )}
+          {siteContent.organizationChart.body.trim() && (
+            <p className="mt-6 text-lg leading-8 text-white/65">{renderMultiline(siteContent.organizationChart.body)}</p>
+          )}
+        </motion.article>
+      </section>
+
+      <section className="mx-auto mt-16 max-w-6xl">
+        <h2 className={sectionHeadingClass}>{siteContent.believerRanks.title}</h2>
+        <motion.article
+          className="glass-card p-8"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
+          {siteContent.believerRanks.image && (
+            <ContentImage
+              image={siteContent.believerRanks.image}
+              imageAlt={siteContent.believerRanks.imageAlt}
+              fallback={null}
+              className="mx-auto max-w-3xl overflow-hidden rounded-[24px] border border-white/10 bg-white/5"
+              imageClassName="mx-auto max-h-[min(45vh,400px)] w-full object-contain"
+            />
+          )}
+          {siteContent.believerRanks.body.trim() && (
+            <p className="mt-6 text-lg leading-8 text-white/65">{renderMultiline(siteContent.believerRanks.body)}</p>
+          )}
+        </motion.article>
+      </section>
+
+      <section className="mx-auto mt-16 max-w-6xl">
         <h2 className={sectionHeadingClass}>{siteContent.alliedGroups.title}</h2>
         <div className="grid gap-5 sm:grid-cols-2">
           {siteContent.alliedGroups.items.map((group, index) => (

@@ -253,6 +253,18 @@
       ]
     }
   ],
+  "organizationChart": {
+    "title": "グンチーン教団組織図",
+    "body": "",
+    "image": "/images/gunchin_chart.png",
+    "imageAlt": "グンチーン教団組織図"
+  },
+  "believerRanks": {
+    "title": "信者階級",
+    "body": "",
+    "image": "/images/gunchin_state.png",
+    "imageAlt": "信者階級"
+  },
   "alliedGroups": {
     "title": "友好団体",
     "items": [

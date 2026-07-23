@@ -98,7 +98,10 @@ gunchin-cult/
 │   ├── 教団年表
 │   ├── グンチーン教団歌（タップで歌詞モーダル）
 │   ├── グンチーン教団舞踏（タップでイラスト一覧・拡大）
-│   └── グン様を祈る正しい作法（タップでイラスト一覧・拡大）
+│   ├── グン様を祈る正しい作法（タップでイラスト一覧・拡大）
+│   ├── グンチーン教団組織図（画像表示）
+│   ├── 信者階級（画像表示）
+│   └── 友好団体（エンブレム＋名称）
 ├── /sayings           お言葉（イラスト拡大・▼で補足文展開）
 ├── /join              入信（成功メッセージ＋信者証）
 ├── /media             メディア（サムネイル・詳細画像）
@@ -170,12 +173,17 @@ gunchin-cult/
 | グンチーン教団歌 | カード（タップで歌詞モーダル） | `ritualCards[]`（`eyebrow: 教団歌`） |
 | グンチーン教団舞踏 | カード（タップでイラスト横スクロール一覧・拡大） | `ritualCards[]`（`eyebrow: 演舞`） |
 | グン様を祈る正しい作法 | カード（タップでイラスト横スクロール一覧・拡大） | `ritualCards[]`（`eyebrow: 作法`） |
+| グンチーン教団組織図 | 画像カード（全体表示） | `organizationChart` |
+| 信者階級 | 画像カード（全体表示・やや小さめ） | `believerRanks` |
+| 友好団体 | エンブレム（左・小）＋名称（右） | `alliedGroups.items[]` |
 
 **特記事項**
 
 - 教団歌カードに `lyrics` フィールドがある場合、クリックで歌詞モーダル（1番・2番・3番対応）を表示
 - 演舞・作法カードに `gallery` 配列がある場合、クリックでイラスト一覧を表示（作法はラベル: 心得 / 作法1…）
 - 年表の `phase` は JSON で個別編集可能（例: `PHASE 1` / `2026/06/22`）
+- 組織図・信者階級はいずれも画像1枚を `object-contain` で表示（信者階級は高さ上限を控えめに設定）
+- 友好団体はイラストを小さく左、団体名を右に横並び表示
 
 ---
 
@@ -311,6 +319,9 @@ gunchin-cult/
 | `about` | 教団について・紹介 |
 | `timeline` | 教団について・年表 |
 | `ritualCards` | 教団について・教団歌（`lyrics`）/ 演舞・作法（`gallery`） |
+| `organizationChart` | 教団について・組織図（`image` / `body`） |
+| `believerRanks` | 教団について・信者階級（`image` / `body`） |
+| `alliedGroups` | 教団について・友好団体（`name` / `image`） |
 | `sayings` | お言葉ページ（`text` / `body` / `italic` / `churchNote`） |
 | `goods` | ショップページ |
 | `news` | お知らせページ |
@@ -329,6 +340,10 @@ gunchin-cult/
 | `public/images/` | サイト画像（JSONでは `/images/ファイル名` で指定） |
 | `public/images/gunchin_emblem.png` | 教団エンブレム（デフォルト） |
 | `public/images/gunsama_advent.png` | 教義ページ・降臨イラスト |
+| `public/images/gunchin_chart.png` | 教団について・組織図 |
+| `public/images/gunchin_state.png` | 教団について・信者階級 |
+| `public/images/katakuri_emblem.png` | 友好団体・真カタクリ会 |
+| `public/images/yamaimo_emblem.png` | 友好団体・山芋の光 |
 
 ---
 
