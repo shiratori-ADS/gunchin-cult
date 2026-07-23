@@ -214,25 +214,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {ritualSections.map(({ eyebrow, heading }, index) => {
-        const card = siteContent.ritualCards.find((item) => item.eyebrow === eyebrow);
-        if (!card) {
-          return null;
-        }
-
-        return (
-          <section key={heading} className="mx-auto mt-16 max-w-6xl">
-            <h2 className={sectionHeadingClass}>{heading}</h2>
-            <RitualCard
-              card={card}
-              index={index}
-              onOpenLyrics={eyebrow === "教団歌" ? () => setSongLyricsOpen(true) : undefined}
-              onOpenGallery={getCardGallery(card).length > 0 ? () => setGalleryCard(card) : undefined}
-            />
-          </section>
-        );
-      })}
-
       <section className="mx-auto mt-16 max-w-6xl">
         <h2 className={sectionHeadingClass}>{siteContent.organizationChart.title}</h2>
         <motion.article
@@ -276,6 +257,25 @@ export default function AboutPage() {
           )}
         </motion.article>
       </section>
+
+      {ritualSections.map(({ eyebrow, heading }, index) => {
+        const card = siteContent.ritualCards.find((item) => item.eyebrow === eyebrow);
+        if (!card) {
+          return null;
+        }
+
+        return (
+          <section key={heading} className="mx-auto mt-16 max-w-6xl">
+            <h2 className={sectionHeadingClass}>{heading}</h2>
+            <RitualCard
+              card={card}
+              index={index}
+              onOpenLyrics={eyebrow === "教団歌" ? () => setSongLyricsOpen(true) : undefined}
+              onOpenGallery={getCardGallery(card).length > 0 ? () => setGalleryCard(card) : undefined}
+            />
+          </section>
+        );
+      })}
 
       <section className="mx-auto mt-16 max-w-6xl">
         <h2 className={sectionHeadingClass}>{siteContent.alliedGroups.title}</h2>
